@@ -49,7 +49,7 @@ body {
   /* Assim eu faço a mesma coisa de antes, porém só utilizando uma linha. */
 }
 /* container */
-
+/* Eu alterei minha container para deixar de mais facil acesso a outros dispositivos, deixei o width de 100%, e depois defini uma maxima do quanto que meu container cresceria até 588px, que seria o tamanho "ideal" para desktop, e para celular ele iria reposicionar de acordo com o dispositivo da pessoa. */
 #container {
   width: 100%;
   max-width: 588px;
@@ -93,11 +93,16 @@ body {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.3s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.3s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -171,7 +176,8 @@ footer {
 }
 
 /* media queries */
-
+/* O arroba é utilizado para criar regras no meu css, at rule */
+/* Aqui eu adiciono uma regra de media, onde se o minimo de largura do meu dispositivo for 700px, ele vai mudar o background para esses outros com tamanhos diferentes */
 @media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
@@ -179,5 +185,25 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
