@@ -96,7 +96,7 @@ body {
 
   animation: slide-back 0.3s;
 }
-
+/* Para chamar uma animação, utilizo a tag animation, o forwards serve para a minha animação voltar a sua posição original dela depois de realizada */
 .light #switch button {
   animation: slide-in 0.3s forwards;
 }
@@ -188,6 +188,8 @@ footer {
   }
 }
 
+/* animations */
+/* Aqui adicionei animações do meu botão de mudar para dark ou light mode, keyframes é a "função utilizada para criação de animações, depois nomeei minha animação, falei de onde ela começaria e onde acabaria, e o que faria" */
 @keyframes slide-in {
   from {
     left: 0;
