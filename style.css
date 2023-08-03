@@ -1,0 +1,169 @@
+/* Os navegadores vem com um modulo padrao, fazemos isso pra deixar ele zerado sem nenhuma configuração*/
+
+/* config */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Criação de variaveis no css */
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/MoonStars.svg);
+  --button-color: white;
+}
+/* light-mode */
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/Background.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.3);
+  --highlight-color: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/Sun.svg);
+  --button-color: gray;
+}
+/* body */
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+body {
+  /* background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; */
+
+  /* UTILIZANDO UM SHORTHAND */
+  background: var(--bg-url) no-repeat top center/cover;
+
+  /* Assim eu faço a mesma coisa de antes, porém só utilizando uma linha. */
+}
+/* container */
+
+#container {
+  width: 360px;
+  margin: auto;
+  padding-top: 56px auto 0;
+  padding: 0 24px;
+}
+/* profile */
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+/* Aqui eu deixei todo o meu switch com a posição relativa, assim o absolute vai ser relativo somente ao switch, limitando a area dele */
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+/* Para alinhar um item dentro de uma caixa menor, e que ele sobreponha ela da maneira correta, você limita o espaço dela com o transform -50%, e depois adiciona com a posição que quer limitar com 50%  */
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: var(--button-color) var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: flex;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links lista */
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+/* Aqui o display flex faz com que o <a> ocupe todo o espaço disponivel */
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  /* O alpha (a do rgba) é a transparencia */
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5s;
+}
+/* quando eu passar o mouse em cima a cor muda, por conta do hover, vc trata do interior do seu item */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* social-links */
+
+#social-links {
+  padding: 24px 0;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.5s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
