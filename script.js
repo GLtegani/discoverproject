@@ -8,15 +8,7 @@ function toggleMode() {
 
   if (html.classList.contains("light")) {
     img.setAttribute("src", "/assets/avatar-light-real.png")
-    img.setAttribute(
-      "alt",
-      "Foto de Gabriel de perto, apenas o rosto dele, olhando para outro lado."
-    )
   } else {
     img.setAttribute("src", "./assets/avatarreal.png")
-    img.setAttribute(
-      "alt",
-      "Foto de Gabriel segurando um celular, de camisa preta, sorrindo com o fundo de seu quarto."
-    )
   }
 }
